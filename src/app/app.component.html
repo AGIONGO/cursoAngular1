@@ -23,6 +23,33 @@
 <div class="alert-danger" role="alert" [style.display]="classe.value=='alert-danger' ? 'block':'none'">
   Esse texto aparece somente em caso de erro
 </div>
+<br>  
 <br>
 <br>
-<br>
+<section class="event-binding">
+    <article>
+        <h3>Event Binding</h3>
+        <div>
+          <button (click) = "onClick()">Me Clique</button>
+          <br><br>
+          <input type="text" 
+          (keyup)="onKeyUp($event)"
+          (keyup.enter)="onSave($event.target.value)"
+          (blur)="onSave(campo.value)"
+          #campo
+          >
+
+          <div>Conteúdo atual: {{conteudoAtual}}</div>
+          <div>Conteúdo salvo: {{conteudoSalvo}}</div>
+           <span
+              (mouseover)="onMouseSpan()"
+              (mouseout)="onMouseSpan()"
+              [class.highlight]="isMouseOver"
+            >
+            Passe o mouse sobre mim
+          </span>
+
+        </div>    
+    </article>
+</section>
+<br><br>
