@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
 export class AppComponent {
   title = 'app works!';
@@ -26,5 +28,14 @@ export class AppComponent {
   onMouseSpan(){
     this.isMouseOver=!this.isMouseOver;
   }
-}
+  nome : string = '';
+  pessoa = {primeiroNome :'', idade : 18};
+  nomeCurso : String = 'Curso Angular 2';
+  valorInicial : number =100;
+
+  onValorMudou(event){
+    console.log('Mudou valor:'+event.novoValor);
+  }
+
+ }
 

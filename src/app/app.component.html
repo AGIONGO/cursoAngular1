@@ -23,7 +23,7 @@
 <div class="alert-danger" role="alert" [style.display]="classe.value=='alert-danger' ? 'block':'none'">
   Esse texto aparece somente em caso de erro
 </div>
-<br>  
+<br>
 <br>
 <br>
 <section class="event-binding">
@@ -32,7 +32,7 @@
         <div>
           <button (click) = "onClick()">Me Clique</button>
           <br><br>
-          <input type="text" 
+          <input type="text"
           (keyup)="onKeyUp($event)"
           (keyup.enter)="onSave($event.target.value)"
           (blur)="onSave(campo.value)"
@@ -49,7 +49,33 @@
             Passe o mouse sobre mim
           </span>
 
-        </div>    
+        </div>
     </article>
 </section>
 <br><br>
+
+
+<section>
+  <article>
+    <h3>Two-waty data binding</h3>
+    <div>
+      <p>Você digitou {{ nome }}</p>
+      <input type="text"
+        [(ngModel)]="nome">
+    </div>
+
+      <div>
+          Meu nome é {{ pessoa.primeiroNome }} e tenho {{ pessoa. idade }} anos de idade.
+          <input type="text" [(ngModel)]="pessoa.primeiroNome"  />
+          <input type="text" [(ngModel)]="pessoa.idade"  />
+        </div>
+  </article>
+</section>
+
+<curso [nome] ="nomeCurso"></curso>
+<br><br>
+<contador [valor] ="valorInicial" (mudouValor)="onValorMudou($event)"></contador>
+
+      <lifecycle [valorInicial]="valorInicial" *ngIf="deletarConteudo != true"></lifecycle>
+      <button (click)="valorInicial = 20">Mudar o valor</button>
+      <button (click)="deletarConteudo = true">Deletar tag life cycle</button>
